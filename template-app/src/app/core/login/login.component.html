@@ -1,13 +1,25 @@
 <div class="container">
-    <form *ngIf="loginForm" (ngSubmit)="onSubmit()"   [formGroup]="loginForm">
-        <mat-form-field class="custom-input">
-            <input matInput placeholder="Email" formControlName="email">
-          </mat-form-field>
-          
-          <mat-form-field class="custom-input">
-            <input matInput type="password" placeholder="Password" formControlName="password">
-          </mat-form-field>
-        <button mat-raised-button color="primary" type="submit">Login</button>
-      </form>
-</div>
+    <div class="card">
+        <div class="card-content">
+            <h3 class="title">Login</h3>
+            <form *ngIf="loginForm" (ngSubmit)="onSubmit()" class="p-fluid grid p-4 pb-0 search-form"
+                [formGroup]="loginForm">
+        
+                    <input class="input" type="text"   placeholder="Email" id="email" formControlName="email">
+                    <small class="p-error block ">{{getFieldError("email")}}</small>
+               
 
+         
+                    <input class="input" type="text"  placeholder="Senha" formControlName="password" id="password" type="password">
+                    <small class="p-error block ">{{getFieldError("password")}}</small>
+                    <small *ngIf="!credentialsValid" class="p-error block ">{{messageFeedback}}</small>
+       
+                <button mat-raised-button color="primary" type="submit" [disabled]="loading">
+                    <span *ngIf="!loading">Entrar</span>
+                   
+                  </button>
+                  <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
+            </form>
+        </div>
+    </div>
+</div>
