@@ -1,5 +1,6 @@
 export const ERROR_500 = 'Problema ao conectar no servidor'
 export const SAVE_SUCESS = 'Dados salvos com sucesso'
-export const EDIT_SUCESS = 'Dados alterados com sucesso'
-export const DELETE_SUCESS = 'Dados excluidos com sucesso'
+export const EDIT_SUCESS = 'Registro alterado com sucesso'
+export const DELETE_SUCESS = 'Registro excluido com sucesso'
 export const VERIFY_FORM = 'Verifique os erros presentes no formul\u00E1rio'
+export const NO_DATA_EDIT = 'Sem dados para alteração'

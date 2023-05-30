@@ -1,9 +1,8 @@
-import { getFieldErrorFromForm } from "src/app/shared/utils/form/form";
+
 import { AbstractControl, FormBuilder } from "@angular/forms";
-import {
-  ErrorHelpers,
-  ErrorNames,
-} from "src/app/shared/utils/form/errors";
+import { ErrorHelpers, ErrorNames } from "./errors";
+
+import { getFieldErrorFromForm } from "./form";
 
 const fb = new FormBuilder();
 const fakeForm = fb.group({ test: null });

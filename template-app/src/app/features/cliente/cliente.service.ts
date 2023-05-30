@@ -19,4 +19,14 @@ export class ClienteService {
     return this.http.post<any>(`${environment.BASE_URL}`, client );
   }
 
+
+  putClient(client: any, id: any): Observable<any>  {
+    return this.http.put<any>(`${environment.BASE_URL}/${id}`, client );
+  }
+
+  deleteClient(id: number): Observable<any>  {
+    return this.http.delete<any>(`${environment.BASE_URL}/${id}`);
+  }
+
+
 }

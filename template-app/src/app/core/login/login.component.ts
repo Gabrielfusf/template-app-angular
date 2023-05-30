@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     const TOKEN = storage.getEncripted(KeysStorage.TOKEN);
     if (TOKEN) {
       this.display = false;
-      this.router.navigate(['home']);
+      this.router.navigate(['/cliente']);
       
     }
   }

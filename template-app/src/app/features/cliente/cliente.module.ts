@@ -11,12 +11,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ClienteFormComponent } from './cliente-form/cliente-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DialogDeleteComponent } from 'src/app/core/dialog-delete/dialog-delete/dialog-delete.component';
 
 
 @NgModule({
   declarations: [
     ClienteListComponent,
-    ClienteFormComponent
+    ClienteFormComponent,
   ],
   imports: [
     CommonModule,

@@ -17,6 +17,9 @@ import { CommonModule } from '@angular/common';
 import { SnackBarComponent } from './core/snack-bar/snack-bar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DialogDeleteComponent } from './core/dialog-delete/dialog-delete/dialog-delete.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 
@@ -24,7 +27,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
   declarations: [
     AppComponent,
     LoginComponent,
-    SnackBarComponent
+    SnackBarComponent,
+    DialogDeleteComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +44,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatProgressSpinnerModule,
     MatToolbarModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
+    
     
   ],
   providers: [],

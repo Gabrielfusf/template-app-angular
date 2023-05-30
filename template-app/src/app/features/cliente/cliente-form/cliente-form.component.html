@@ -8,35 +8,32 @@
             </mat-expansion-panel-header>
 
 
-                <form *ngIf="saveForm" (ngSubmit)="onSubmit()"   style="display: flex;" class="is-8"
-                    [formGroup]="saveForm">
-
-                    <div class="containerInput">
-                        <input class="input" type="text" placeholder="Nome" id="nome" formControlName="nome">
-                        <small class="p-error block ">{{getFieldError("nome")}}</small>
-                    </div>
-                    <div class="containerInput">
-                        <input class="input" type="text" placeholder="Email" id="email" formControlName="email">
-                        <small class="p-error block ">{{getFieldError("email")}}</small>
-                    </div>
-                    <div class="containerInput">
-                    <input class="input" type="text" placeholder="Senha" formControlName="password" id="password"
-                        type="password">
-                    <small class="p-error block ">{{getFieldError("password")}}</small>
-                    </div>
-
-                    <div *ngIf="!loading" class="containerInput">
-                        <button class="button is-info" type="submit">Salvar</button>
-                        <mat-spinner *ngIf="loading" diameter="40"></mat-spinner>
-                    </div>
-                    
-                </form>
+            <form *ngIf="saveForm" (ngSubmit)="onSubmit()" style="display: flex; flex-wrap: wrap;" class="is-8" [formGroup]="saveForm">
+                <div class="containerInput" fxLayout="row" fxLayout.lt-md="column">
+                  <input class="input" type="text" placeholder="Nome" id="nome" formControlName="nome">
+                  <small class="p-error block">{{getFieldError("nome")}}</small>
+                </div>
+                <div class="containerInput" fxLayout="row" fxLayout.lt-md="column">
+                  <input class="input" type="text" placeholder="Email" id="email" formControlName="email">
+                  <small class="p-error block">{{getFieldError("email")}}</small>
+                </div>
+                <div class="containerInput" fxLayout="row" fxLayout.lt-md="column">
+                  <input class="input" type="text" placeholder="Senha" formControlName="password" id="password" type="text">
+                  <small class="p-error block">{{getFieldError("password")}}</small>
+                </div>
+              
+                <div *ngIf="!loading" class="containerInput">
+                  <button class="button is-info" type="submit">Salvar</button>
+                  <mat-spinner *ngIf="loading" diameter="40"></mat-spinner>
+                </div>
+              </form>
+              
         </mat-expansion-panel>
     </mat-accordion>
     <mat-spinner *ngIf="loading" diameter="40"></mat-spinner>
     <div *ngIf="!loading" style="display: flex; ">
         <div class="buttons">
-            <button class="button is-info">Voltar</button>
+            <button class="button is-info" (click)="goBack()">Voltar</button>
           
         </div>
     </div>

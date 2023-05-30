@@ -12,7 +12,7 @@ export class SnackbarService {
   openSnackBar(message: string, action: string): void {
     this.snackBar.openFromComponent(SnackBarComponent, {
       data: { message },
-      duration: 2000 // Duração em milissegundos
+      duration: 2000
     });
   }
 }
