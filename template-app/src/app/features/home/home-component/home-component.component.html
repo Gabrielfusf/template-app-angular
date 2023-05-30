@@ -1,0 +1,20 @@
+<div class="main-content">
+    <mat-toolbar class="toolBar">
+        <span>Flex.io</span>
+    </mat-toolbar>
+    <mat-sidenav-container class="sidebar-container">
+        <mat-sidenav [opened]="isSidebarOpen" mode="side" class="sidebar">
+            <ul>
+                <li>
+                    <button class="button is-large is-fullwidth" (click)="goToScreen()">Cliente</button>
+                </li>
+            </ul>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <button mat-icon-button (click)="toggleSidebar()" class="sidebar-toggle-button">
+                <mat-icon>{{ isSidebarOpen ? 'close' : 'menu' }}</mat-icon>
+            </button>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

@@ -1,0 +1,39 @@
+  ul li {
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  button {
+    font-size: 25px;
+  }
+
+  .main-content {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-container {
+    flex: 1;
+    background-color: transparent;
+    height: 90%;
+  }
+
+  .sidebar {
+    width: 20%;
+    height: 100%;
+    padding: 1%;
+  }
+
+  .sidebar-toggle-button {
+    margin-right: 16px;
+    color: white;
+  }
+
+  .toolBar {
+    color: #424242
+  }
+
+
+
+

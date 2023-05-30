@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="display" class="container" [style.zIndex]="display ? 1 : -1" >
     <div class="card">
         <div class="card-content">
             <h3 class="title">Login</h3>

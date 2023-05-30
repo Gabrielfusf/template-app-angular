@@ -1,8 +1,10 @@
+import { MESSAGES_CONTAINER_ID } from '@angular/cdk/a11y';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { KeysStorage } from 'src/app/utils/enums/keys-storage.enum';
 import { getFieldErrorFromForm, markAllFieldAsDirty } from 'src/app/utils/form/form/form';
+import { ERROR_500 } from 'src/app/utils/messages/messages';
 import { storage } from 'src/app/utils/storage';
 import { LoginService } from './login.service';
 
@@ -19,20 +21,26 @@ export class LoginComponent implements OnInit {
   loading: boolean = false;
   credentialsValid: boolean = true;
   messageFeedback: string = '';
-  
+
 
   constructor(
     private formBuilder: FormBuilder,
     private loginService: LoginService,
     private router: Router,
-    ) { }
+  ) {
+    const TOKEN = storage.getEncripted(KeysStorage.TOKEN);
+    if (TOKEN) {
+      this.display = false;
+      this.router.navigate(['home']);
+      
+    }
+  }
 
   ngOnInit(): void {
     this.createForm();
-
   }
 
-  createForm(){
+  createForm() {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required]],
       password: ['', Validators.required]
@@ -50,7 +58,7 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     this.loginForm?.controls['email'].addValidators([Validators.email]);
     this.loginForm?.controls['email'].updateValueAndValidity();
-    
+
     this.loginForm?.markAllAsTouched();
     markAllFieldAsDirty(this.loginForm);
 
@@ -67,29 +75,24 @@ export class LoginComponent implements OnInit {
           this.credentialsValid = true;
           this.loading = false;
           this.display = false;
-          // this.router.navigate(['home']);
-         
+          this.router.navigate(['home']);
+
         },
         error: (err) => {
           console.error(err);
           this.loading = false;
           this.credentialsValid = false;
-          this.messageFeedback = err.error.message
+          this.messageFeedback = err.error.message?? ERROR_500
         },
       });
 
-      
-    }
-    }
 
-  
-
-  getFieldError(field: string) {
-      return getFieldErrorFromForm(this.loginForm, field);
+    }
   }
 
-
-
+  getFieldError(field: string) {
+    return getFieldErrorFromForm(this.loginForm, field);
+  }
 
 
 }
